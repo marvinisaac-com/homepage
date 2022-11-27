@@ -1,0 +1,13 @@
+networks:
+  default:
+    external:
+      name: dev
+
+services:
+  marvinisaac-com-ui:
+    image: nginx:alpine
+    environment:
+      VIRTUAL_HOST: marvinisaac.local
+    volumes:
+      - ./src:/usr/share/nginx/html
+      - ./config/nginx.dev.conf:/etc/nginx/conf.d/site.conf
